@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="zh-Sign"
+  id="myeclipse.1427696971915"
+  context-root="/zh-Sign"
+  j2ee-spec="6.0"
+  archive="zh-Sign.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+

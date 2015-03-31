@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="signAppl" extends="struts-default">
+		<action name="signApplAction" class="com.zh.sign.action.SignApplAction">
+			<result name="list">/jsp/signAppl/signApplList.jsp</result>
+			<result name="update">/jsp/signAppl/updatesignAppl.jsp</result>
+		</action>
+	</package>
+	
+	<package name="signApplJson" extends="json-default">
+		<action name="signApplJson" class="com.zh.sign.action.SignApplAction">
+		<result type="json">
+			<param name="root">message</param>
+		</result>
+		</action>
+	</package>
+</struts>
