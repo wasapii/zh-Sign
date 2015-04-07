@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 	<div class="header navbar navbar-inverse navbar-fixed-top">
-		<div class="navbar-inner">
+	<div class="navbar-inner">
 			<div class="container-fluid">
 				<a class="brand" href="index.html">
 				<img src="image/logo.png" alt="logo" />
@@ -79,9 +79,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 				</div>
 				<div class="footer">
-					<div class="copyright" align="center">
-						2015 &copy; Sign - Unified Login Management.
-					</div>
+					<div class="copyright" align="center">2015 &copy; Sign - Unified
+						Login Management.</div>
 				</div>
 			</div>
 		</div>

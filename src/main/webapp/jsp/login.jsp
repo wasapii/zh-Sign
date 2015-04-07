@@ -20,6 +20,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="<%=basePath%>css/uniform.default.css" rel="stylesheet" type="text/css"/>
 	<link href="<%=basePath%>css/login-soft.css" rel="stylesheet" type="text/css"/>
 	<link rel="shortcut icon" href="<%=basePath%>image/favicon.ico" />
+ 	<script type="text/javascript" src="<%=basePath%>js/jquery-1.9.1.min.js"></script>
+  	<script type="text/javascript">
+  	$(document).ready(function(){
+  		$("#login").click(function(){
+			var userId = $("#userSign.userName").val();
+	  		var params = $("#loginForm").serialize();
+			$.ajax({
+				url	: "signUserJson!login.action",
+				type :"post",
+				//dataType: "json",
+				data : params,
+				timeout : 2000,
+				success	: function(data){
+					if(data == "success"){
+						$("#msg").html("登录成功！");
+	                	window.location.href ="signUserAction!test.action?id="+userId;  
+	   				}else{
+						$("#msg").html("用户名或密码错误！");
+					}
+	            },
+				error	: function(){
+					alert("请求失败");
+				},
+				beforeSend :function(){
+					$("#msg").html("正在验证，请稍后...");
+				}
+			});
+  		});
+  	});
+  	</script>
   </head>
   
   <body>
@@ -28,36 +58,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<img src="image/logo-big.png" alt="" /> 
 	</div>
 	<div class="content">
-		<form class="form-vertical login-form" action="index.html">
-			<h3 class="form-title">Login to your account</h3>
+		<form class="form-vertical login-form" id = "loginForm">
+			<h3 class="form-title">请登录</h3>
 			<div class="alert alert-error hide">
 				<button class="close" data-dismiss="alert"></button>
-				<span>Enter any username and password.</span>
+				<span>请输入用户名与密码.</span>
 			</div>
 			<div class="control-group">
-				<label class="control-label visible-ie8 visible-ie9">Username</label>
+				<label class="control-label visible-ie8 visible-ie9">用户名：</label>
 				<div class="controls">
 					<div class="input-icon left">
 						<i class="icon-user"></i>
-						<input class="m-wrap placeholder-no-fix" style="height: 30px" type="text" placeholder="Username" name="username"/>
+						<input class="m-wrap placeholder-no-fix" style="height: 30px" type="text" placeholder="Username" id = "userSign.userName"/>
 					</div>
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label visible-ie8 visible-ie9">Password</label>
+				<label class="control-label visible-ie8 visible-ie9">密码：</label>
 				<div class="controls">
 					<div class="input-icon left">
 						<i class="icon-lock"></i>
-						<input class="m-wrap placeholder-no-fix" style="height: 30px" type="password" placeholder="Password" name="password"/>
+						<input class="m-wrap placeholder-no-fix" style="height: 30px" type="password" placeholder="Password" id = "userSign.userPassword"/>
 					</div>
 				</div>
 			</div>
+			<div id = "msg"></div>
 			<div class="form-actions">
 				<label class="checkbox">
-				<input type="checkbox" name="remember" value="1"/> Remember me
+				<input type="checkbox" name="remember" value="1"/> 记住用户名
 				</label>
-				<button type="submit" class="btn blue pull-right">
-				Login <i class="m-icon-swapright m-icon-white"></i>
+				<button type="submit" class="btn blue pull-right" id="login">
+				登录 <i class="m-icon-swapright m-icon-white"></i>
 				</button>            
 			</div>
 		</form>

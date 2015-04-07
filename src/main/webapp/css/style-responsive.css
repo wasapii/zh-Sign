@@ -68,7 +68,7 @@
   	Page content
   	***/
   	.page-content { 
-  		margin-left: 225px; 
+  		margin-left: 0px; 
 		margin-top: 0px;
 		min-height: 760px; 
 	}
@@ -192,7 +192,7 @@ For tablets and phones
 	}
 
 	.page-sidebar .sidebar-toggler {
-		display: none;
+		display: inline;
 	}
 
 	.page-sidebar ul {

@@ -7,7 +7,7 @@
 
 	<package name="signUser" extends="struts-default">
 		<action name="signUserAction" class="com.zh.sign.action.SignUserAction">
-			<result name="list">/jsp/signUser/signUserList.jsp</result>
+			<result name="list">/jsp/index.jsp</result>
 			<result name="update">/jsp/signUser/updatesignUser.jsp</result>
 		</action>
 	</package>
